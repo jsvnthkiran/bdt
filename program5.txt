@@ -7,7 +7,7 @@ object scalaWordCount{
 		}
 		val filename=args(0)
 		val wordcount = scala.collection.mutable.Map[String,Int]()
-		for(line<-Source.fromFile("word.text").getLines)
+		for(line<-Source.fromFile(filename).getLines)
 			for(word <- line.split(" "))
 				wordcount(word) = if(wordcount.contains(word)) wordcount(word) + 1 else 1
 			
