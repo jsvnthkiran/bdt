@@ -1,0 +1,36 @@
+//mtcars
+data()
+head(mtcars)
+
+rownum<-nrow(mtcars)
+colnum<-ncol(mtcars)
+print(rownum)
+print(colnum)
+
+x<-data.frame(mtcars)
+auto<-0
+man<-0 
+
+for(i in 1:rownum){
+  ifelse(x[i,9]==0,auto<-auto+1,man<-man+1)
+}
+ifelse(auto>man,"more automatic cars","more manual cars")
+
+horsepower<-x[,4]
+weight<-x[,6]
+scatter.smooth(horsepower,weight,span=2/3,degree=1,family=c("symmetric","gaussian"))
+
+mpg<-x[,1]
+hist(mpg,breaks=12,col="lightblue",border="pink")
+
+new1<-as.integer(x[,2])
+
+new2<-as.integer(x[,8])
+
+new3<-as.integer(x[,9])
+newmtc<-data.frame(new1,new2,new3)
+print(newmtc)
+sapply(mtcars,class)
+sapply(newmtc,class)
+
+subset(mtcars,cyl<5)
