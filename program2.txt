@@ -1,0 +1,41 @@
+n <- as.integer(readline(prompt = "Enter the number of Employees: "))
+EmpId <- vector(mode="numeric", length= n)
+EmpName <- vector(mode="character", length= n)
+DOJ <- vector(mode="character", length= n)
+EmpCode <- vector(mode="numeric",length = n)
+Desig <- vector(mode="character",length = n)
+Dept <- vector(mode="character",length = n)
+
+print("Enter Employee details: \n")
+for (i in 1:n)
+{
+  print(paste("Details of employee ",i))
+  EmpId[i] <- as.integer(readline("eid: "))
+  EmpName [i] <- as.character(readline("empname: "))
+  DOJ[i] <- as.character(readline("doj: "))
+  EmpCode[i] <- as.integer(readline("empcode: "))
+  Desig[i] <- as.character(readline("desig: "))
+  Dept[i] <- as.character(readline("dept: "))
+}
+
+Emp <- data.frame(EmpId,EmpName,EmpCode,Desig,Dept,DOJ)
+print("The Employee detials are as follows")
+print(Emp)
+
+write.csv(Emp,"employee.csv")
+
+readStudent<-read.csv("employee.csv")
+print(readStudent)
+
+print("Enter a new row")
+a<- as.integer(readline("eid: "))
+b <- as.character(readline("empname: "))
+c <- as.integer(readline("empcode: "))
+d <- as.character(readline("desig: "))
+e <- as.character(readline("dept: "))
+f <- as.character(readline("doj: "))
+x<- data.frame(a,b,c,d,e,f)
+
+write.table(x,"employee.csv",col.names = FALSE, append = TRUE,row.names= TRUE, quote= FALSE, sep = ",")
+readStudent<-read.csv("employee.csv")
+print(readStudent)
