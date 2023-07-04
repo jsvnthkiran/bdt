@@ -4,7 +4,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 object wordcount {
   def main(args: Array[String]) {
-    val pathToFile = "/home/subhrajit/sparkProjects/data/log.txt"
+    val pathToFile = "log.txt"
     val conf = new SparkConf()
       .setAppName("Wordcount")
       .setMaster("local[*]")
